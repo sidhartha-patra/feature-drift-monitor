@@ -1,0 +1,7 @@
+{
+  "n_bins": 10,
+  "strategy": "quantile",
+  "epsilon": 1e-6,
+  "thresholds": { "moderate": 0.10, "significant": 0.25 },
+  "categorical_features": ["region", "device"]
+}

@@ -1,0 +1,5 @@
+numpy>=1.22
+# Optional: only required to run the KS cross-check test (tests/test_ks.py).
+# The library itself has no scipy dependency.
+scipy>=1.9
+pytest>=7.0

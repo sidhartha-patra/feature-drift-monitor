@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "feature-drift-monitor"
+version = "0.1.0"
+description = "Statistical feature drift/skew monitoring (PSI + KS) for ML platform teams."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Sidhartha Patra", email = "sidhartha57@gmail.com" }]
+keywords = ["drift", "psi", "kolmogorov-smirnov", "ml-monitoring", "data-quality", "feature-store"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.22"]
+
+[project.optional-dependencies]
+# scipy is only needed to run the (skippable) KS cross-check test.
+test = ["pytest>=7.0", "scipy>=1.9"]
+
+[project.urls]
+Homepage = "https://github.com/sidhartha-patra/feature-drift-monitor"
+Repository = "https://github.com/sidhartha-patra/feature-drift-monitor"
+
+[project.scripts]
+driftmon = "driftmon.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["tests"]
